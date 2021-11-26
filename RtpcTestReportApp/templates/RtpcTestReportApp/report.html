@@ -1,0 +1,392 @@
+{% extends 'RtpcTestReportApp/base.html'%} {% block style %}
+
+ @page { 
+    size: a4;
+    margin: .50in;
+    margin-top:.20in;
+ } 
+.add-width {
+            width: 1200px;
+            margin: auto;
+        }
+
+        * {
+            margin: 0;
+        }
+
+
+        .Outer-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+            position: relative;
+
+        }
+
+        .left-image {
+            position: absolute;
+            left: 0;
+            width: 120px;
+            top: 110px;
+            left: 10px;
+        }
+
+        h6 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        h5 {
+            font-size: 15px;
+        }
+
+        p {
+            margin-bottom: 3px;
+            font-weight: 400;
+        }
+
+        li {
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        .add-border{
+            {% comment %} margin: 20px 0; {% endcomment %}
+            padding:0;
+            margin: 0;
+             border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding:0;
+        }
+        .add-border h4{
+           padding-top:6px;
+           
+        }
+  
+        .text-dark{
+            color: #000;
+        }
+        .text-light{
+            color: rgba(0,0,0,.7);
+        }
+        .fw-mormal{
+            font-weight: 400;
+        }
+        .fw-bold{
+            font-weight: 600;
+        }
+        .pt-1{
+            padding-top: 20px;
+        }
+        .fs-2{
+            font-size:11.6px;
+            margin:0;
+            margin-bottom:10px;
+        }
+        .text-end{
+            text-align: center;
+        }
+        tr td{
+            font-size:11px;
+            margin-top:10px;
+        }
+        h1{
+            font-size:24px;
+        }
+        .contact{
+            margin:0;
+            font-size:13px;
+            font-weight: 400;
+        }
+    .address{
+        margin:0;
+        font-size:12px;
+    }
+    .add-margin h5{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    td{
+        margin-top: 10px;
+    }
+
+ {% endblock %} {% block content %}
+
+    <table class="add-width">
+        <tr>
+            <th colspan="3">
+                <h1>
+
+                    Government Medical College, Baramati <br>
+                    Department Of Microbiology
+                </h1>
+
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+
+                <h5 class="address">
+                    Plot No. P-107, MIDC Campus Opp. Women's Hospital, Baramati - 413133 <br>
+                    District Pune, Maharashtra, India
+                </h5>
+                <h4 class="contact">
+
+                    Phone No: 02112 244172</h4>
+                <h4 class="contact">Email:microgmcbaramati@gmail.com</h4>
+            </th>
+        </tr>
+
+        <tr class="heading">
+            <td>
+
+                <p class="fs-2"><b>SRF ID :</b> {{report.srf_id}}</p>
+                <p class="fs-2"><b>Name :</b> {{report.patient.name}}</p>
+                <p class="fs-2"><b>Ref. By :</b> {{report.ref_by}}</p>
+            </td>
+            <td >
+
+                <p class="fs-2">&nbsp;&nbsp;&nbsp;<b>LAB ID :</b> {{report.lab_id}}</p>
+                <p class="fs-2">&nbsp;&nbsp;&nbsp;<b>Age :</b> {{report.patient.age}} Yrs <b>Sex: </b>{{report.patient.gender}}</p>
+                <p class="fs-2">&nbsp;&nbsp;&nbsp;<b>Ref. By :</b>{{report.ref_by}}</p>
+            </td>
+            <td >
+
+                <p class="fs-2"><b>Sample Collection:</b>{{report.sample_collection}}</p>
+                <p class="fs-2"><b>Sample Received :</b>{{report.sample_received}}</p>
+                <p class="fs-2"><b>Report Released :</b> {{report.report_released}}</p>
+            </td>
+        </tr>
+      
+        <tr>
+            <td class="add-border" colspan="3">
+                <h4>SARS-CoV2 (COVID-19) Real Time RT PCR Test</h4>
+            </td>
+        </tr>
+        <tr>
+        <td></td>
+        </tr>
+        <tr>
+            <td>
+                <p>Type of Sample</p>
+            </td>
+            {% comment %} <td class="text-end">
+                <p>
+                    :
+                </p>
+            </td> {% endcomment %}
+            <td colspan="2">
+                <p> : &nbsp; &nbsp; &nbsp;
+                    {{report.type_of_sample}}
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td class="col-5">
+                <p>Sample Condition of Receipt</p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; 
+                {{report.sample_condition_of_receipt}}
+                </p>
+            </td>
+        </tr>
+        <!--  sample  -->
+
+        <tr>
+
+            <td class="col-5">
+                <p>PCR Kit </p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; {{report.pcr_kit}}</p>
+            </td>
+        </tr>
+        <!-- pcr  -->
+        <!--  pcr  -->
+        <!-- N gene  -->
+        <tr>
+
+            <td class="col-5">
+                <p>N gene</p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; {{report.n_gene}}</p>
+            </td>
+        </tr>
+        <!--  N gene  -->
+        <!-- E gene  -->
+        <tr>
+
+            <td class="col-5">
+                <p>E gene </p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; {{report.e_gene}}</p>
+            </td>
+        </tr>
+        <!--  E gene  -->
+        <!-- Edrp gene  -->
+        <tr>
+
+            <td class="col-5">
+                <p>RdRP gene </p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; {{report.rdrp_gene}}</p>
+            </td>
+        </tr>
+        <!--  Edrp gene  -->
+        <!-- sars  -->
+        <tr>
+
+            <td class="col-5">
+                <p>SARS-CoV2 (COVID-19) RT PCR Test result </p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; <b>{{report.rtpcr_test}}</b></p>
+            </td>
+        </tr>
+        <!--  sars  -->
+        <!-- sars  -->
+        <tr>
+
+            <td class="col-5">
+                <p>Equipment </p>
+            </td>
+            {% comment %} <td class="col-1 text-end">
+                <p>:</p>
+            </td> {% endcomment %}
+            <td class="col-6" colspan="2">
+                <p> :  &nbsp; &nbsp; &nbsp; {{report.equipment}}</p> </p>
+            </td>
+        </tr>
+        <!--  sars  -->
+
+      
+
+        <tr>
+            <th colspan="3" align="left" class="add-margin">
+
+                <h5><b>ICMR approval lab code: GMCBPM</b></h5>
+            </th>
+        </tr>
+
+     
+        <tr>
+            <td colspan="3">
+
+
+                <div class="col-12 mt-4">
+                    <h5><b>NOTE :</b></h5>
+                    <ol>
+                        <li>The result pertains only to the specimen tested and should be correlated with clinical and
+                            other
+                            laboratory findings
+                            to determine patient status</li>
+                        <li>Please note that these results are not to be used for any thesis or presentations or for
+                            publication in any journal,
+                            print or electronic media without the prior written permission of the Director General,
+                            ICMR.
+                        </li>
+                        <li>The test results will be shared with defined Govt. bodies as per the guidelines of Govt of
+                            India/ICMR.</li>
+                        <li>The test results are for the information of, and interpretation by the treating doctor only.
+                        </li>
+                        <li>This report is not valid for medico legal purposes.</li>
+                    </ol>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+
+                <p class="text-black-50">
+                    <i>
+                        (Collected At: 05/11/2021 10:55:40, Received At: 05/11/2021 10:55:40, Reported At: 05/11/2021
+                        17:29:17)
+                </p>
+            </td>
+        </tr>
+       
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <th colspan="3">
+                -------------------- End Of Report --------------------
+
+            </th>
+        </tr>
+
+    
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><br></td>
+        </tr>
+        
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr align="center">
+            <td >
+                <h5>Sign</h5>
+                <p>Dr. Vidya Arjunwadkar</p>
+                <p>M.D. Microbiology </p>
+            </td>
+            <td >
+                <h5>Sign</h5>
+                <p>Dr. Vidya Arjunwadkar</p>
+                <p>M.D. Microbiology </p>
+            </td>
+            <td >
+                <h5>Sign</h5>
+                <p>Dr. Vidya Arjunwadkar</p>
+                <p>M.D. Microbiology </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><br></td>
+        </tr>
+
+        <tr>
+            <td class="col-12 mt-4" colspan="3">
+                <p>**Sample has been collected outside the laboratory. The results pertain to the sample received.</p>
+            </td>
+
+        </tr>
+
+    </table>
+
+
+
+{% endblock %}

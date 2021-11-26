@@ -1,0 +1,44 @@
+* {
+    /* font-family: 'Merriweather', serif; */
+}
+
+.Outer-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    position: relative;
+
+}
+
+.left-image {
+    position: absolute;
+    left: 0;
+    width: 120px;
+    top: 110px;
+    left: 10px;
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+h5 {
+    font-size: 15px;
+}
+
+p {
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+li {
+    font-weight: 500;
+}
+
+.add-border {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    margin-top: 20px;
+}

@@ -2,7 +2,8 @@ from django.contrib import admin
 from RtpcTestReportApp.models import PatientReport
 
 class PatientReportAdmin(admin.ModelAdmin):
-    list_display = ['id','srf_id','ref_by',
+
+    list_display = ['id','patient','srf_id','ref_by',
                     'lab_id','printed','sample_collection',
                     'sample_received','report_released',
                     'created_at'
@@ -14,7 +15,7 @@ class PatientReportAdmin(admin.ModelAdmin):
     fieldsets = (
        
         ('Patient Info', {
-            'fields': ('srf_id','ref_by',
+            'fields': ('patient','srf_id','ref_by',
                     'lab_id','printed','sample_collection',
                     'sample_received','report_released',),
         }),
@@ -25,9 +26,6 @@ class PatientReportAdmin(admin.ModelAdmin):
                        'equipment'
             ),
         }),
-
-      
-        
         )
   
     

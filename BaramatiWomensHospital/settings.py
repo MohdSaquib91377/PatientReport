@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'RtpcTestReportApp'
+    'RtpcTestReportApp',
+    'patient'
     
 ]
 
@@ -70,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'BaramatiWomensHospital.wsgi.application'
-
+AUTH_USER_MODEL = 'patient.Patient'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -120,8 +122,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL='/patient/login/'
+
+
+from django.contrib.messages import constants as message_constants
+MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
+                message_constants.INFO: 'info',
+                message_constants.SUCCESS: 'success',
+                message_constants.WARNING: 'warning',
+                message_constants.ERROR: 'danger',}
