@@ -53,5 +53,8 @@ def download_report(request):
    
 @login_required(login_url=settings.LOGIN_URL)
 def dashboard(request):
-    return render(request, 'RtpcTestReportApp/dashboard.html')
-
+   try:
+      patient=PatientReport.objects.get(patient=request.user)
+      return render(request, 'RtpcTestReportApp/dashboard.html',{'patient': patient})
+   except PatientReport.DoesNotExist:
+      return render(request,'RtpcTestReportApp/patient_report_not_found.html',{})
